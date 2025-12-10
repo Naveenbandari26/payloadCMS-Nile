@@ -28,6 +28,8 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    // Use migrations instead of automatic push to avoid RLS conflicts
+    migrationDir: path.resolve(dirname, 'migrations'),
   }),
   sharp,
   plugins: [],

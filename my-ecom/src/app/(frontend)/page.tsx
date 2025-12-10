@@ -12,8 +12,17 @@ import './styles.css'
 export default async function HomePage() {
   const headers = await getHeaders()
   const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
+  
+  let user = null
+  try {
+    const payload = await getPayload({ config: payloadConfig })
+    const authResult = await payload.auth({ headers })
+    user = authResult.user
+  } catch (error) {
+    // Handle database initialization errors gracefully
+    console.error('Error initializing Payload:', error)
+    // Continue without user authentication if there's a database error
+  }
 
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
