@@ -1,10 +1,12 @@
 import { headers as getHeaders } from 'next/headers.js'
 import Image from 'next/image'
+import Link from 'next/link'
 import { getPayload } from 'payload'
 import React from 'react'
 import { fileURLToPath } from 'url'
 
 import config from '@/payload.config'
+import LogoutButton from '@/components/LogoutButton'
 import './styles.css'
 
 export default async function HomePage() {
@@ -30,6 +32,17 @@ export default async function HomePage() {
         {!user && <h1>Welcome to your new project.</h1>}
         {user && <h1>Welcome back, {user.email}</h1>}
         <div className="links">
+          {!user && (
+            <>
+              <Link href="/login" className="auth-link-button">
+                Login
+              </Link>
+              <Link href="/signup" className="auth-link-button signup">
+                Sign Up
+              </Link>
+            </>
+          )}
+          {user && <LogoutButton />}
           <a
             className="admin"
             href={payloadConfig.routes.admin}

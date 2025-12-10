@@ -138,6 +138,26 @@ svg {
       background: rgb(0, 0, 0);
       border: 1px solid rgb(1000, 1000, 1000);
     }
+
+    .auth-link-button {
+      color: rgb(1000, 1000, 1000);
+      background: rgb(0, 0, 0);
+      border: 1px solid rgb(1000, 1000, 1000);
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .auth-link-button:hover {
+      opacity: 0.8;
+    }
+
+    .auth-link-button.signup {
+      color: rgb(0, 0, 0);
+      background: rgb(1000, 1000, 1000);
+      border: 1px solid rgb(0, 0, 0);
+    }
   }
 
   .footer {
@@ -161,4 +181,21 @@ svg {
       border-radius: 4px;
     }
   }
+}
+
+.logout-button {
+  color: rgb(1000, 1000, 1000);
+  background: rgb(0, 0, 0);
+  border: 1px solid rgb(1000, 1000, 1000);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+
+.logout-button:hover {
+  opacity: 0.8;
 }
